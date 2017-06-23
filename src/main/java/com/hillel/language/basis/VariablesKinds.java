@@ -10,6 +10,8 @@ public class VariablesKinds {
     static int classVariable;
 
     public static void main(String[] parameter) {
+        System.out.println(classVariable);
+        //System.out.println(instanceVariable);
         int localVariable;
     }
 }

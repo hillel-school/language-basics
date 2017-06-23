@@ -5,9 +5,13 @@ package com.hillel.language.basis;
  */
 public class VariableTypes {
 
+    static byte b1;
+
     public static void main(String[] args) {
         // numeric
-        byte b = 0; // 8 bit
+        byte b; // 8 bit
+        System.out.println(b1);
+
         short s = 0; // 16 bit
         int i = 0; // 32 bit
         long l = 0; // 64 bit

@@ -8,9 +8,11 @@ import java.util.Scanner;
 public class FahrenheitToCelsius {
 
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int i = scanner.nextInt();
+//        Scanner scanner = new Scanner(System.in);
+//        int i = scanner.nextInt();
 
+        int i = System.in.read();
+        System.out.println(i);
         System.out.println(toCelsius(i));
     }
 
