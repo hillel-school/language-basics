@@ -1,25 +1,45 @@
 package com.hillel.language.test;
 
-import java.util.Scanner;
-
-/**
- * Created by alexstybaev on 6/19/17.
- */
 public class Test {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите кол-во градусов Цельсия(Для выхода введите q):");
-        String input=scan.nextLine();
-        while (!input.equals("q")){
-            int Celsius=Integer.parseInt(input);
-            int C2F=Celsius*9/5+32;
+        int number = 3;
 
-//            System.out.print("%d градусов Цельсия равны %d градусам Фаренгейта \n", Celsius,C2F);
+        System.out.println("lol");
 
-            System.out.println(Celsius + "  градусов Цельсия равны  " + C2F + "  градусам по Фаренгейту  ");
-            System.out.println("Введите кол-во градусов Цельсия(Для выхода введите q):");
-            input=scan.nextLine();
+        long startRecursion = System.nanoTime();
+        System.out.println(tribonacciRecursion(number));
+        long finishRecursion = System.nanoTime();
+        System.out.println("tribonacciRecursion time = " + (finishRecursion - startRecursion));
+
+        long startCycle = System.nanoTime();
+        System.out.println(tribonacciCycle(number));
+        long finishCycle = System.nanoTime();
+        System.out.println("tribonacciCycle time = " + (finishCycle - startCycle));
+
+    }
+
+    static long tribonacciRecursion(int number) {
+        System.out.println("rec called");
+        if (number <= 3) {
+            return number;
+        } else {
+            return tribonacciRecursion(number - 1) + tribonacciRecursion(number - 2) + tribonacciRecursion(number - 3);
+        }
+    }
+    static long tribonacciCycle(int number) {
+        System.out.println("cycle called");
+        long a = 1L, b = 2L, c = 3L;
+        if (number <= 3) {
+            return number;
+        } else {
+            while (number != 1) {
+                c += a + b;
+                b = c - a - b;
+                a = c - b - a;
+                number--;
+            }
+            return a;
         }
     }
 }
