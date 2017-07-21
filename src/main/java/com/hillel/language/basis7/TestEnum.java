@@ -1,15 +1,15 @@
-package com.hillel.language.basis6;
+package com.hillel.language.basis7;
 
 public class TestEnum {
 
     public static void main(String[] args) {
-        System.out.println(SevenKingdoms.TULLY);
-        System.out.println(SevenKingdoms.LANNISTER);
+        System.out.println(SevenKingdoms.values());
+        System.out.println(SevenKingdoms.FEB);
     }
 
     public static String testSwitch(SevenKingdoms family) {
         switch (family) {
-            case BARATHEON: {
+            case FEB: {
                 return "";
             }
             default:
