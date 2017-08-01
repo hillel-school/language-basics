@@ -2,17 +2,21 @@ package com.hillel.language.basis7;
 
 public enum SevenKingdoms {
 
-    JAN("31"),
-    FEB("28");
+    JAN(12),
+    FEB(13);
 
-    String days;
+    int days;
 
-    SevenKingdoms(String days) {
+    SevenKingdoms(int days) {
         this.days = days;
+    }
+
+    public int getDays() {
+        return days;
     }
 
     @Override
     public String toString() {
-        return this.days != null ? this.days : this.name();
+        return this.name();
     }
 }

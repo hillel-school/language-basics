@@ -11,7 +11,6 @@ public class FindElementFromEnd {
     }
 
     public int getElementFromTheEnd(int endIndex) {
-        // your code here
         return 0;
     }
 }
