@@ -1,4 +1,6 @@
-package com.hillel.language.basis10.practice;
+package com.hillel.language.basis11.iterator;
+
+import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +18,8 @@ public class Container {
         }
     }
 
+    // !!
     public List<Integer> get() {
-        return list;
+        return ImmutableList.copyOf(list);
     }
-
 }
