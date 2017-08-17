@@ -1,4 +1,4 @@
-package com.hillel.language.basis12;
+package com.hillel.language.basis13;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -18,5 +18,8 @@ public class FileScanner {
                 System.out.println(s.next());
             }
         }
+
+        Scanner scanner = new Scanner(System.in);
+
     }
 }

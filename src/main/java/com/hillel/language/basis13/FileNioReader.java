@@ -1,4 +1,4 @@
-package com.hillel.language.basis12;
+package com.hillel.language.basis13;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 
 import static com.hillel.language.basis12.ReadWriteStreams.FILENAME_SOURCE;
 
@@ -20,22 +21,25 @@ public class FileNioReader {
         System.out.println(file3.toAbsolutePath().toString());
 
         String s = "Whatever string";
-        try(BufferedWriter writer = Files.newBufferedWriter(file3)) {
+        try(BufferedWriter writer = Files.newBufferedWriter(file3, StandardOpenOption.APPEND)) {
             writer.write(s, 0, s.length());
         } catch (IOException x) {
             System.err.format("IOException: %s%n", x);
         }
+        Path directory = file3.resolveSibling("directory");
 
-        Path directory = Files.createDirectory(file3.resolveSibling("directory"));
-        Path newPath = directory.resolve(file3.getFileName());
+        if(!Files.exists(directory)) {
+            Files.createDirectory(directory);
+        }
+        Path newPath = directory.resolve("newfile.txt");
 
-        // moveFiles(file3, newPath);
+        moveFiles(file3, newPath);
 
-        // deleteFile(newPath);
+        deleteFile(newPath);
     }
 
     private static void moveFiles(Path oldPath, Path newPath) throws IOException {
-        Files.move(oldPath, newPath, StandardCopyOption.ATOMIC_MOVE);
+        Files.move(oldPath, newPath, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
     }
 
     private static void deleteFile(Path path) throws IOException {
