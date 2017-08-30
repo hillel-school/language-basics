@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<students>
+    <student id="55">
+        <name>Vasiliy</name>
+        <lastname>Zaycev</lastname>
+        <birthdate>11.12.1980</birthdate>
+    </student>
+
+    <student id="56" class="JE">
+        <name>Ivan</name>
+        <lastname>Bunin</lastname>
+        <birthdate>11.12.1880</birthdate>
+    </student>
+</students>
