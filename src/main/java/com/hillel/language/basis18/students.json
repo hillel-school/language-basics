@@ -1,0 +1,21 @@
+{
+  "students":
+  [
+    {
+      "student": {
+        "id": 55,
+        "name": "Vasiliy",
+        "lastname": "Zaycev",
+        "birthdate": "11-12-1980"
+      }
+    },
+    {
+      "student": {
+        "id": 55,
+        "name": "Vasiliy",
+        "lastname": null,
+        "birthdate": "11-12-1980"
+      }
+    }
+  ]
+}

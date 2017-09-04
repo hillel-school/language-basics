@@ -3,12 +3,12 @@
     <student id="55">
         <name>Vasiliy</name>
         <lastname>Zaycev</lastname>
-        <birthdate>11.12.1980</birthdate>
+        <birthdate>1234-12-12</birthdate>
     </student>
 
-    <student id="56" class="JE">
+    <student id="56">
         <name>Ivan</name>
         <lastname>Bunin</lastname>
-        <birthdate>11.12.1880</birthdate>
+        <birthdate>1880-12-12</birthdate>
     </student>
 </students>

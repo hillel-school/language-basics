@@ -23,4 +23,20 @@ public class Student {
 
     public Student() {
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
 }
