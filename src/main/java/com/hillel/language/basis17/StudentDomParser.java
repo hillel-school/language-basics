@@ -1,6 +1,7 @@
 package com.hillel.language.basis17;
 
 
+import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -13,28 +14,30 @@ public class StudentDomParser {
 
     public static void main(String[] args) throws Exception {
 
-        File inputFile = new File("src/main/java/com/hillel/language/basis17/students.xml");
+        File inputFile = new File("/Users/alexstybaev/IdeaProjects/Hillel/src/main/java/com/hillel/language/basis20/conf.xml");
 
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(inputFile);
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        Document doc = documentBuilder.parse(inputFile);
         doc.getDocumentElement().normalize();
-        NodeList nodes = doc.getElementsByTagName("student");
-        for (int i = 0; i < nodes.getLength(); i++) {
-            Node node = nodes.item(i);
-            if(node.hasAttributes()) {
-                System.out.println(node.getAttributes().getLength());
-                Node id = node.getAttributes().getNamedItem("id");
-                System.out.println(id);
+
+        NodeList nodeList = doc.getElementsByTagName("configuration");
+        Node configuration = nodeList.item(0);
+        String extension = null;
+        String directory = null;
+        for (int i = 0; i < configuration.getChildNodes().getLength(); i++) {
+            Node node = configuration.getChildNodes().item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE && "directory".equals(node.getNodeName())){
+                directory = node.getTextContent();
+                System.out.println(directory);
             }
-            NodeList children = node.getChildNodes();
-            for (int j = 0; j < children.getLength(); j++) {
-                Node child = children.item(j);
-                System.out.println(child.getNodeType());
-//                if(child.getNodeType() == Node.ELEMENT_NODE){
-//                    System.out.println(child.getNodeName() + ": " + child.getTextContent());
-//                }
+            else if (node.getNodeType() == Node.ELEMENT_NODE && "extension".equals(node.getNodeName())) {
+                extension = node.getTextContent();
+                System.out.println(extension);
             }
         }
+        System.out.println(directory);
+        System.out.println(extension);
     }
+
 }
