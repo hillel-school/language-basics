@@ -1,16 +1,14 @@
 package com.hillel.language.basis22.fixed_atomic;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 public class AtomicSharedObject {
 
-    private AtomicLong value = new AtomicLong(0);
+    private volatile long value;
 
     public void increment() {
-        this.value.incrementAndGet();
+        this.value++;
     }
 
     public long getValue() {
-        return value.get();
+        return value;
     }
 }

@@ -4,11 +4,15 @@ public class SynchronizedSharedObject {
 
     private long value;
 
+    private final Object lock = new Object();
+
     public synchronized void increment() {
         this.value++;
     }
 
     public long getValue() {
-        return value;
+      synchronized (this.lock) {
+          return value;
+      }
     }
 }

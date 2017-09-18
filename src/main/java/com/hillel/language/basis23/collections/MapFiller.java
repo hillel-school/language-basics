@@ -1,13 +1,14 @@
 package com.hillel.language.basis23.collections;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class MapFiller {
 
     public static void main(String[] args) throws InterruptedException {
-        Set<String> strings = new HashSet<>();
+        Map<String, Integer> strings = new HashMap<>();
 
         String sentence1 = "In computer programming, particularly in the C, C++, C#, and Java programming languages, " +
                 "the volatile keyword indicates that a value may change between different accesses, even if it does not " +
@@ -27,17 +28,27 @@ public class MapFiller {
 
     private static class MyRunnable implements Runnable {
 
-        Set<String> holder;
+        Map<String, Integer> holder;
         String source;
 
-        public MyRunnable(Set<String> holder, String source) {
+        public MyRunnable(Map<String, Integer> holder, String source) {
             this.holder = holder;
             this.source = source;
         }
 
         @Override
         public void run() {
-            Collections.addAll(holder, source.split(" "));
+            String[] strings = source.split(" ");
+            for(String s : strings) {
+                String lower = s.toLowerCase();
+                if(this.holder.containsKey(lower)) {
+                    int count = this.holder.get(lower);
+                    this.holder.put(s, ++count);
+                }
+                else {
+                    this.holder.put(lower, 1);
+                }
+            }
         }
     }
 }

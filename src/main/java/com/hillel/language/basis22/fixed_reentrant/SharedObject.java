@@ -7,12 +7,15 @@ public class SharedObject {
 
     private volatile long value;
 
-    private Lock lock = new ReentrantLock();
+    private ReentrantLock lock = new ReentrantLock();
 
     public void increment() {
+        System.out.println("Hello");
+        //sdasdas;
+
         this.lock.lock();
         try {
-            this.value += 1;
+            this.value++;
         } finally {
             this.lock.unlock();
         }
