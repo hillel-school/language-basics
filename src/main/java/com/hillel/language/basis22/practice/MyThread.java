@@ -14,6 +14,7 @@ public class MyThread extends Thread {
 
     @Override
     public void run() {
+        System.out.println("dasdsda");
         String[] arr = s.split(" ");
         set.addAll(Arrays.asList(arr));
     }
