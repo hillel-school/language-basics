@@ -14,9 +14,9 @@ public class PriorityBQMain {
                     return Integer.compare(one % 2, two % 2);
                 });
 
-        Producer p = new Producer(blockingQueue);
-        Consumer c1 = new Consumer(blockingQueue);
-        Consumer c2 = new Consumer(blockingQueue);
+        MyProducer p = new MyProducer(blockingQueue);
+        MyConsumer c1 = new MyConsumer(blockingQueue);
+        MyConsumer c2 = new MyConsumer(blockingQueue);
         Thread producer = new Thread(p);
         producer.start();
         Thread consumer1 = new Thread(c1);

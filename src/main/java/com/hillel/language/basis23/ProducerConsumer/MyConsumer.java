@@ -3,11 +3,11 @@ package com.hillel.language.basis23.ProducerConsumer;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
-public class Consumer implements Runnable {
+public class MyConsumer implements Runnable {
 
     protected BlockingQueue<String> queue = null;
 
-    public Consumer(BlockingQueue<String> queue) {
+    public MyConsumer(BlockingQueue<String> queue) {
         this.queue = queue;
     }
 
@@ -16,7 +16,7 @@ public class Consumer implements Runnable {
         try {
             while (true) {
                 Thread.sleep(new Random().nextInt(50));
-                System.out.println(Thread.currentThread().getName() + " :" + queue.take());
+                System.out.println(Thread.currentThread().getName() + " :" + queue.take().toUpperCase());
             }
         } catch (InterruptedException e) {
             System.out.println("Interrupted");

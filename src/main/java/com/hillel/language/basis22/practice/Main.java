@@ -22,7 +22,11 @@ public class Main {
         Thread thread3 = new MyThread(text3, set);
         thread3.start();
 
-        Thread.sleep(100);
+        thread1.join();
+        thread2.join();
+        thread3.join();
+
+        //Thread.sleep(100);
 
         System.out.println(set.size());
     }
