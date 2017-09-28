@@ -1,5 +1,6 @@
 package com.hillel.language.basis24.callables;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -15,9 +16,8 @@ public class MyCallable implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        //Thread.sleep(1000);
-        list.sort(Comparator.naturalOrder());
+        //Thread.sleep(2000);
         System.out.println("Thread: " + Thread.currentThread().getName());
-        return list.get(0);
+        return Collections.min(this.list);
     }
 }

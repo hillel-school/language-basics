@@ -17,14 +17,15 @@ import static com.google.common.collect.Lists.newArrayList;
 public class ExecutorsMain2 {
 
     public static void main(String[] args) throws Exception {
-        ExecutorService service = Executors.newFixedThreadPool(3);
+        ExecutorService service = Executors.newFixedThreadPool(4);
+        // ------
         List<Callable<Integer>> tasks = new ArrayList<>();
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 30; i++) {
             List<Integer> numbers = generateNumbers(i*10, i*100000);
             Collections.shuffle(numbers);
             tasks.add(new MyCallable(numbers));
         }
-
+        // ------
         List<Future<Integer>> results = service.invokeAll(tasks);
 
         boolean finished = false;
@@ -36,8 +37,7 @@ public class ExecutorsMain2 {
                     finished = false;
                 }
             }
-            System.out.println("Waiting...");
-            Thread.sleep(100);
+
         }
 
         for (Future result : results) {

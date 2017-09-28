@@ -2,6 +2,7 @@ package com.hillel.language.basis24.callables;
 
 import java.util.List;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
 
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -15,14 +16,14 @@ public class CallableMain {
         FutureTask<Integer> futureTask = new FutureTask<>(myCallable);
 
         Thread thread = new Thread(futureTask);
-
         thread.start();
+
         System.out.println("Start waiting");
-        while (!futureTask.isDone()) {
-            System.out.println("Waiting...");
-            Thread.sleep(300);
-        }
-        int result = futureTask.get();
+//        while (!futureTask.isDone()) {
+//            System.out.println("Waiting...");
+//            Thread.sleep(300);
+//        }
+        int result = futureTask.get(1000, TimeUnit.MILLISECONDS);
         System.out.println(result);
     }
 }
