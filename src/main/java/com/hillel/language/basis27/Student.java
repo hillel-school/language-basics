@@ -34,7 +34,7 @@ public class Student {
     @CollectionTable(name = "phones", joinColumns = @JoinColumn(name = "student_id"))
     private List<Phone> phones;
 
-    //@Transient
+    @Transient
     private int dontNeedThisOne;
 
     public Student() {

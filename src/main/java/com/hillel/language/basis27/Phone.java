@@ -3,8 +3,6 @@ package com.hillel.language.basis27;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 //@Entity (name = "Phone")
 //@Table(name = "phones")

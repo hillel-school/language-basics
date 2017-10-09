@@ -1,6 +1,5 @@
 package com.hillel.language.junk;
 
-import java.util.StringJoiner;
 import java.util.function.IntSupplier;
 import java.util.stream.Stream;
 
@@ -14,7 +13,10 @@ public class Main {
         for (i = 0; i < 10; i++) {
             lambdas[i] = () -> i;
         }
-
         System.out.println(Stream.of(lambdas).mapToInt(IntSupplier::getAsInt).sum());
+    }
+
+    private static void dasda() {
+        i++;
     }
 }
